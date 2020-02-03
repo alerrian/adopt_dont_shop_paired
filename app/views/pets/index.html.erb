@@ -1,0 +1,30 @@
+<h1>The Pets Index</h1>
+<% if @shelter %>
+  <h3><%= "#{@shelter.name}'s Pets" %></h3>
+  <h4>Shelter ID: <%= @shelter.id %></h4>
+<% else %>
+  <h3>Pets</h3>
+<% end %>
+
+
+<% @pets.each do |pet| %>
+  <div class="grid-pet" id="pet-<%= pet.id %>">
+    <p>Name: <a href="/pets/<%= pet.id %>"><%=pet.name%></a></p>
+    <p><%= link_to 'Edit Pet', "/pets/#{pet.id}/edit"%> </p>
+    <p><%= button_to 'Delete Pet', "/pets/#{pet.id}", method: :delete%> </p>
+  </div>
+    <br>
+    <br>
+    <img src="<%= pet.image %>"<br>
+    <p>Age: <%= pet.age %> </p>
+    <br>
+    <p>Sex: <%= pet.sex %></p>
+    <br>
+    <p>Shelter: <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}" %></p>
+    <br>
+
+<% end %>
+
+<% if @shelter %>
+<%= link_to 'Create Pet', "/shelters/#{@shelter.id}/pets/new" %>
+<% end %>
