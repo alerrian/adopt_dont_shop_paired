@@ -10,7 +10,7 @@ RSpec.describe 'as a visitor', type: :feature do
       zip: 80206
     )
 
-    @review1 = Review.create(
+    @review1 = Review.create!(
       title: 'New review',
       rating: '5 Stars',
       content: 'This place is awesome!',
@@ -24,11 +24,12 @@ RSpec.describe 'as a visitor', type: :feature do
 
     click_on 'New Review'
 
-    expect(current_oath).to eq('/reviews/new')
+    expect(current_path).to eq("/shelters/#{@shelter1.id}/reviews/new")
 
     fill_in :title, with: 'Best place for pets'
     fill_in :rating, with: '5 stars'
     fill_in :content, with: 'This is the best shelter in Denver!'
+    fill_in :image, with: 'No image'
 
     click_on 'Submit Review'
 

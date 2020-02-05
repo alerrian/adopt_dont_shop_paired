@@ -14,7 +14,7 @@ class PetsController < ApplicationController
 
   def new
     @shelter_id = params[:shelter_id]
-    end
+  end
 
   def create
     pet = Pet.new({

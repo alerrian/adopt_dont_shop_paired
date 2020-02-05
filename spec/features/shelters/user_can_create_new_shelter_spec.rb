@@ -3,12 +3,11 @@ require 'rails_helper'
 RSpec.describe 'As a visitor', type: :feature do
   describe 'when I visit the new shelter form by clicking on the link in the index' do
     it 'can create a new shelter' do
-
       visit '/shelters'
       click_link 'New Shelter'
 
       expect(current_path).to eq('/shelters/new')
-      expect(page).to have_content("Create New Shelter")
+      expect(page).to have_content('Create New Shelter')
 
       fill_in :name, with: 'Denver Dog Shelter'
       fill_in :address, with: '1530 S. High St.'
@@ -23,8 +22,6 @@ RSpec.describe 'As a visitor', type: :feature do
     end
   end
 end
-
-
 
 # [ ] done
 #
