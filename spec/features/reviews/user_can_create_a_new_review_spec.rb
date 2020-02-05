@@ -27,7 +27,7 @@ RSpec.describe 'as a visitor', type: :feature do
     expect(current_path).to eq("/shelters/#{@shelter1.id}/reviews/new")
 
     fill_in :title, with: 'Best place for pets'
-    fill_in :rating, with: '5 stars'
+    select '3', from: :rating
     fill_in :content, with: 'This is the best shelter in Denver!'
     fill_in :image, with: 'No image'
 

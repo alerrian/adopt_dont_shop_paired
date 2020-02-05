@@ -8,9 +8,14 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @shelter_id = params[:shelter_id]
     review = Review.new(review_params)
-    review.save
-    redirect_to "/shelters/#{review.shelter_id}"
+    if review.save
+      redirect_to "/shelters/#{review.shelter_id}"
+    else
+      flash[:notice] = "Review not submitted: Required information missing."
+      render :new
+    end
   end
 
   private
