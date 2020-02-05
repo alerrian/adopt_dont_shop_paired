@@ -15,7 +15,7 @@ RSpec.describe 'as a visitor', type: :feature do
         title: 'Shelter 1 review',
         rating: '5',
         content: 'This is the best shelter I have ever seen. Ever.',
-        image: 'There is no image here',
+        image: '',
         shelter_id: @shelter_1.id
       )
     end
@@ -34,7 +34,7 @@ RSpec.describe 'as a visitor', type: :feature do
       fill_in :title, with: 'New Rating Edited'
       select '3', from: :rating
       fill_in :content, with: 'This is the best shelter in Denver!'
-      fill_in :image, with: 'No image'
+      fill_in :image, with: ''
 
       click_on 'Submit'
 
@@ -56,7 +56,7 @@ RSpec.describe 'as a visitor', type: :feature do
       fill_in :title, with: ''
       select '3', from: :rating
       fill_in :content, with: 'This is the best shelter in Denver!'
-      fill_in :image, with: 'No image'
+      fill_in :image, with: ''
 
       click_on 'Submit'
 

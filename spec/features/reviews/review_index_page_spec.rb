@@ -14,7 +14,7 @@ RSpec.describe 'as a visitor', type: :feature do
       title: 'Shelter 1 review',
       rating: '5',
       content: 'This is the best shelter I have ever seen. Ever.',
-      image: 'There is no image here',
+      image: '',
       shelter_id: shelter_1.id
     )
 
