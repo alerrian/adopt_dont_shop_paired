@@ -26,11 +26,12 @@ RSpec.describe 'create pet page', type: :feature do
       fill_in :description, with: "Old pup"
       fill_in :age, with: 10
       fill_in :sex, with: "Male"
+      fill_in :adoptable, with: "Yes"
 
       click_on 'Create Pet'
 
       expect(current_path).to eq("/shelters/#{shelter_1.id}/pets")
-      # expect(page).to have_content("Male")
+      expect(page).to have_content("Male")
     end
   end
 end
