@@ -12,7 +12,7 @@ RSpec.describe 'as a visitor', type: :feature do
 
     @review1 = Review.create(
       title: 'New review',
-      rating: '5 Stars',
+      rating: '5',
       content: 'This place is awesome!',
       image: 'no image',
       shelter_id: @shelter1.id

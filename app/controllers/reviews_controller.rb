@@ -23,9 +23,14 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    review = Review.find(params[:id])
-    review.update(review_params)
-    redirect_to "/shelters/#{review.shelter_id}"
+    @shelter_id = params[:shelter_id]
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      redirect_to "/shelters/#{@review.shelter_id}"
+    else
+      flash[:notice] = "Review not submitted: Required information missing."
+      render :edit
+    end
   end
 
   private
