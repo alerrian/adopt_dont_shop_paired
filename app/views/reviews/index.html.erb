@@ -1,0 +1,8 @@
+<h2>All Reviews Across Shelters</h2>
+
+<% @reviews.each do |review| %>
+  <p>Title: <%= review.title %></p>
+  <p>Rating: <%= review.rating %></p>
+  <p>Content: <%= review.content %></p>
+  <p>Image: <%= review.image %>
+<% end %>

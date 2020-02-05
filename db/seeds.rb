@@ -20,3 +20,11 @@ pet2 = Pet.create(image: "https://huhinteresting.files.wordpress.com/2009/07/bud
                   adoptable: "yes",
                   shelter_id: shelter_2.id
                   )
+
+review1 = Review.create(
+  title: 'New review',
+  rating: '5 Stars',
+  content: 'This place is awesome!',
+  image: 'no image',
+  shelter_id: shelter_1.id
+)
