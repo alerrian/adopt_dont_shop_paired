@@ -3,9 +3,9 @@ class PetsController < ApplicationController
     if params[:shelter_id]
       @shelter = Shelter.find(params[:shelter_id])
       @pets = @shelter.pets
-      @favorite = Favorite.new(session[:favorite])
     else
       @pets = Pet.all
+      @favorite = Favorite.new(session[:favorites])
     end
   end
 
