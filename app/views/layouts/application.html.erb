@@ -12,7 +12,7 @@
     <banner>
       <%= link_to 'Pets Index', "/pets" %>
       <%= link_to 'Shelters Index', "/shelters" %>
-      <%= button_to "Favorites:  ", "/favorites" %>
+      <%= link_to "Favorites: #{@favorites.total_count}", '/favorites' %>
     </banner>
 
     <% flash.each do |type, message| %>
