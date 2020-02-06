@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe "favorites", type: :feature do
-  before :each do
-    shelter_1 = Shelter.create!(
+RSpec.describe "When a user adds pet to their favorites" do
+  it "displays a message" do
+        shelter_1 = Shelter.create!(
       name: "John's Shelter",
       address: '1550 East 15th',
       city: 'Denver',
@@ -40,19 +40,29 @@ describe "favorites", type: :feature do
       rating: '5',
       content: 'This place is awesome!',
       image: '',
-      shelter_id: @shelter1.id
+      shelter_id: shelter_1.id
     )
-  end
 
-  it 'shows count of favorite pets next to favorites link' do
-    visit "/"
-    expect(page).to have_content("Favorites: 0")
-    visit "/shelters"
-    expect(page).to have_content("Favorites: 0")
-    visit "/pets/#{@pet1.id}"
-    click_button('Favorite')
-    expect(page).to have_content("Favorites: 1")
-    expect(page).to have_content("#{@pet1.name} has been added to your favorites!")
-  end
 
+
+  visit "/pets"
+
+     within "#pet-#{pet1.id}" do
+       click_button "Add Favorite"
+
+     end
+
+     expect(page).to have_content("You have added #{pet1.name} to your favorites.")
+  # it 'shows count of favorite pets next to favorites link' do
+  #   visit "/"
+  #   expect(page).to have_content("Favorites: 0")
+  #   visit "/shelters"
+  #   expect(page).to have_content("Favorites: 0")
+  #   visit "/pets/#{@pet1.id}"
+  #   click_button('Add Favorite')
+  #   expect(page).to have_content("Favorites: 1")
+  #   expect(page).to have_content("You have added #{@pet1.name} has been added to your favorites!")
+  # end
+
+end
 end
