@@ -46,13 +46,16 @@ RSpec.describe "When a user adds pet to their favorites" do
 
 
   visit "/pets"
-  
+  expect(page).to have_content("Favorites: 0")
+
      within "#pet-#{pet1.id}" do
        click_button "Add Favorite"
 
      end
 
+     expect(page).to have_content("Favorites: 1")
      expect(page).to have_content("You have added #{pet1.name} to your favorites.")
+
   # it 'shows count of favorite pets next to favorites link' do
   #   visit "/"
   #   expect(page).to have_content("Favorites: 0")
