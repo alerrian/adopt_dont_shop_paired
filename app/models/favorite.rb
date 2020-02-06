@@ -13,7 +13,4 @@ class Favorite
     @contents[id.to_s] = 1
   end
 
-  def remove_pet(id)
-    @contents.delete(id.to_s)
-  end
 end
