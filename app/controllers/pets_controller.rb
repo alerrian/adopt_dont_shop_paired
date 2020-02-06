@@ -5,6 +5,7 @@ class PetsController < ApplicationController
       @pets = @shelter.pets
     else
       @pets = Pet.all
+      @favorite = Favorite.new(session[:favorites])
     end
   end
 
