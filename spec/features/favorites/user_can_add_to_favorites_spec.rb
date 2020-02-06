@@ -46,7 +46,7 @@ RSpec.describe "When a user adds pet to their favorites" do
 
 
   visit "/pets"
-
+  
      within "#pet-#{pet1.id}" do
        click_button "Add Favorite"
 
