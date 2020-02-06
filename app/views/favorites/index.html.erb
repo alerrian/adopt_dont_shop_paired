@@ -1,8 +1,10 @@
 <h1>Favorite Pets</h1>
 
-<% @pets.each do |pet| %>
-  <section id="favorites-<%= pet.id %>">
-    <h2><%= link_to "#{pet.name}", "/pets/#{pet.id}" %></h2>
-    <p><%= image_tag "#{pet.image}" %></p>
-  </section>
+<% if @favorites.total_count == 0 %>
+  <p>You have no pets!</p>
+<% else %>
+  <% @favs.each do |pet| %>
+    <h3><%= link_to pet.name, "pets/#{pet.id}" %></h3>
+    <%= image_tag pet.image, size: 100 %>
+  <% end %>
 <% end %>

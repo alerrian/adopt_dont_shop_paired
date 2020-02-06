@@ -5,6 +5,8 @@
 <p> Sex: <%= @pet.sex %></p>
 <p> Adoptable: <%= @pet.adoptable %></p>
 
-<p><%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %></p>
-<p><%= link_to 'Add Favorite', "/favorites/#{@pet.id}", method: :patch %></p>
-<p><%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %></p>
+<section id="pet-<%= @pet.id %>">
+  <p><%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %></p>
+  <p><%= link_to 'Add Favorite', "/favorites/#{@pet.id}", method: :patch %></p>
+  <p><%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %></p>
+</section>
