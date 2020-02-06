@@ -4,7 +4,7 @@
   <p>You have no pets!</p>
 <% else %>
   <% @favs.each do |pet| %>
-    <%= pet.name %>
+    <%= link_to pet.name, "pets/#{pet.id}" %>
     <%= pet.image %>
   <% end %>
 <% end %>
