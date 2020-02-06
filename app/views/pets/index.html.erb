@@ -12,6 +12,7 @@
     <p>Name: <a href="/pets/<%= pet.id %>"><%=pet.name%></a></p>
     <p><%= link_to 'Edit Pet', "/pets/#{pet.id}/edit"%> </p>
     <p><%= button_to 'Delete Pet', "/pets/#{pet.id}", method: :delete%> </p>
+    <p><%= button_to 'Add Favorite', "/favorites/#{pet.id}", method: :patch%> </p>
   </div>
     <br>
     <br>
