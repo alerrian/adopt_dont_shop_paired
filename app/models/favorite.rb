@@ -2,15 +2,14 @@ class Favorite
   attr_reader :contents
 
   def initialize(initial_contents)
-    @contents = initial_contents || Hash.new(0)
+    @contents = initial_contents
   end
 
   def total_count
-    @contents.values.sum
+    if @contents == nil
+      0
+    else
+      @contents.values.sum
+    end
   end
-
-  def add_favorite_pet(id)
-    @contents[id.to_s] = 1
-  end
-
 end
