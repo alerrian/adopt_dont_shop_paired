@@ -12,12 +12,13 @@
     <banner>
       <%= link_to 'Pets Index', "/pets" %>
       <%= link_to 'Shelters Index', "/shelters" %>
+      <%= button_to "Favorites: 0", "/favorites" %>
     </banner>
 
     <% flash.each do |type, message| %>
       <p><%= message %></p>
     <% end %>
-    
+
     <%= yield %>
   </body>
 </html>
