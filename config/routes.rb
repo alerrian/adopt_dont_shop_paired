@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   patch '/shelters/:shelter_id/reviews/:id', to: 'reviews#update'
   delete '/shelters/:shelter_id/reviews/:id', to: 'reviews#destroy'
 
-  patch '/favorites/:id', to: 'favorites#update'
+  patch '/favorites/:pet_id', to: 'favorites#update'
 end
