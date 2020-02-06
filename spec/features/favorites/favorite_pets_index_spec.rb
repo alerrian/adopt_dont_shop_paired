@@ -27,17 +27,20 @@ RSpec.describe 'As a user', type: :feature do
       click_on 'Favorites: 0'
 
       expect(current_path).to eq('/favorites')
-      expect(page).to have_content "You have no pets!"
+      expect(page).to have_content 'You have no pets!'
     end
 
     it 'can see all pets on a favorites index page' do
       visit "/pets/#{@pet1.id}"
 
-      within "#pet-#{@pet1.id}" do
-        click_on 'Add Favorite'
-      end
+      click_on 'Add Favorite'
 
-      click_on 'Favorited: '
+      click_on 'Favorites: 1'
+
+      expect(current_path).to eq('/favorites')
+      expect(page).not_to have_content('You have no pets!')
+      expect(page).to have_content(@pet1.name)
+      expect(page).to have_content(@pet1.image)
     end
   end
 end

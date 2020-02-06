@@ -1,4 +1,10 @@
 class FavoritesController < ApplicationController
+  def index
+    if session[:favorites]
+      @favs = Pet.find(session[:favorites].keys)
+    end
+  end
+
   def update
     pet = Pet.find(params[:pet_id])
     pet_id_str = pet.id.to_s
