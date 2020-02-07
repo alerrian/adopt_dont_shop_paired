@@ -3,7 +3,6 @@ class SheltersController < ApplicationController
     @shelters = Shelter.all
   end
 
-
   def new
   end
 
@@ -34,7 +33,6 @@ class SheltersController < ApplicationController
     Shelter.destroy(params[:id])
     redirect_to '/shelters'
   end
-
 
   private
 

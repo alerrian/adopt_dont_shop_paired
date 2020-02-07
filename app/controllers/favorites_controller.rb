@@ -2,6 +2,8 @@ class FavoritesController < ApplicationController
   def index
     if session[:favorites]
       @favs = Pet.find(session[:favorites].keys)
+    else
+      {}
     end
   end
 

@@ -39,14 +39,7 @@ RSpec.describe "When a user adds pet to their favorites" do
        click_on "Add Favorite"
      end
 
-     within "#pet-#{@pet1.id}" do
-       click_on "Add Favorite"
-     end
-
-     within "#pet-#{@pet1.id}" do
-       click_on "Add Favorite"
-     end
-
+     expect(page).to have_content('Unfavorite Pet')
      expect(page).to have_content("Favorites: 1")
    end
 end

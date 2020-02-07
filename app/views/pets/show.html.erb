@@ -7,6 +7,10 @@
 
 <section id="pet-<%= @pet.id %>">
   <p><%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %></p>
-  <p><%= link_to 'Add Favorite', "/favorites/#{@pet.id}", method: :patch %></p>
+  <% if in_favs? %>
+    <%= link_to "Unfavorite Pet", "/favorites/#{@pet.id}", method: :delete %>
+  <% else %>
+    <%= link_to "Add Favorite", "/favorites/#{@pet.id}", method: :patch %>
+  <% end %>
   <p><%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %></p>
 </section>
