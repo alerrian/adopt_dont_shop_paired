@@ -40,7 +40,6 @@ RSpec.describe 'As a user', type: :feature do
       expect(current_path).to eq('/favorites')
       expect(page).not_to have_content('You have no pets!')
       expect(page).to have_content(@pet1.name)
-      expect(page).to have_content(@pet1.image)
     end
   end
 end
