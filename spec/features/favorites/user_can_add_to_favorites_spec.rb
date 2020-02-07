@@ -32,7 +32,7 @@ RSpec.describe "When a user adds pet to their favorites" do
      expect(page).to have_content("You have added #{@pet1.name} to your favorites.")
    end
 
-   it 'can increment pets' do
+   it 'cannot add more than one of a pet' do
      visit '/pets'
 
      within "#pet-#{@pet1.id}" do
