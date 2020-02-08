@@ -1,0 +1,30 @@
+<h1> New Adopt Application Form </h1>
+
+<%= form_tag '/adopt_applications', method: :post do %>
+<h4>Pets</h4>
+   <%= label_tag :pet %>
+   <%= text_field_tag :pet %>
+
+   <%= label_tag :name %>
+   <%= text_field_tag :name %>
+
+   <%= label_tag :address %>
+   <%= text_field_tag :address %>
+
+   <%= label_tag :city %>
+   <%= text_field_tag :city %>
+
+   <%= label_tag :state %>
+   <%= text_field_tag :state %>
+
+   <%= label_tag :zip %>
+   <%= text_field_tag :zip %>
+
+   <%= label_tag :phone_number %>
+   <%= phone_field_tag :phone_number %>
+
+   <%= label_tag :description %>
+   <%= text_area_tag :description %>
+
+   <p><%= submit_tag "Submit Application" %></p>
+<% end %>
