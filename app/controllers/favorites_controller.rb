@@ -23,4 +23,9 @@ class FavoritesController < ApplicationController
     flash[:success] = "Pet Removed from Favorites"
     redirect_to "/favorites"
   end
+
+  def destroy_all
+   session[:favorites] = {}
+   redirect_to '/favorites'
+ end
 end
