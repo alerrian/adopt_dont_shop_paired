@@ -43,4 +43,14 @@ RSpec.describe 'As a visitor when I favorite a pet' do
     expect(current_path).to eq("/favorites")
     expect(page).not_to have_content("#{@pet1.name}")
   end
+
+  it "can delete the pet from favorites list" do
+    visit "/favorites"
+
+    expect(current_path).to eq("/favorites")
+    click_on 'Remove All'
+    expect(current_path).to eq("/favorites")
+    expect(page).to have_content('You have no pets!')
+    expect(page).to have_link('Favorites: 0')
+  end
 end
