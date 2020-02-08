@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'As a visitor when I favorite a pet' do
   before :each do
-    before :each do
+
       @shelter_1 = Shelter.create!(
         name: "John's Shelter",
         address: '1550 East 15th',
@@ -40,10 +40,7 @@ RSpec.describe 'As a visitor when I favorite a pet' do
     expect(page).to have_content("Favorites: 1")
     expect(page).not_to have_button('Favorite')
     click_on 'Unfavorite Pet'
-    save_and_open_page
-    expect(page).to have_content('Unfavorite Pet')
     expect(current_path).to eq("/favorites")
     expect(page).not_to have_content("#{@pet1.name}")
-  end
   end
 end
