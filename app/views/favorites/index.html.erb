@@ -1,5 +1,6 @@
 <h1>Favorite Pets</h1>
  <%= link_to "Remove All", "/favorites", method: :delete %>
+ <%= link_to "Adoption Application", "/adopt_applications/new" %>
 
 <% if @favorites.total_count == 0 %>
   <p>You have no pets!</p>
