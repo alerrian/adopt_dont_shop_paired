@@ -21,6 +21,6 @@ class FavoritesController < ApplicationController
     pet = Pet.find(params[:pet_id])
     session[:favorites].delete(pet.id.to_s)
     flash[:success] = "Pet Removed from Favorites"
-    redirect_back(fallback_location: '/favorites')
+    redirect_to "/favorites"
   end
 end
