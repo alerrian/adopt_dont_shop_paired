@@ -23,6 +23,11 @@ class AdoptionsController < ApplicationController
     end
   end
 
+  def show
+    # require "pry"; binding.pry
+    @adoption = Adoption.find(params[:id])
+  end
+
   private
 
   def adoption_params
