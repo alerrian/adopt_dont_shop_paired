@@ -14,4 +14,7 @@
 
 <section id='applied-to-pets'>
   <h2>Pets with applications:</h2>
+  <% @apps.each do |application| %>
+    <%= link_to Pet.find(application.pet_id).name, "/pets/#{application.pet_id}" %>
+  <% end %>
 </section>

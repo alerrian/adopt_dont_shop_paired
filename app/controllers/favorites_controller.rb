@@ -1,5 +1,14 @@
 class FavoritesController < ApplicationController
   def index
+    pet_adopt = PetAdoption.all
+    @apps = []
+
+    if @apps
+      pet_adopt.each do |pet|
+        @apps.push(pet)
+      end
+    end
+
     if session[:favorites]
       @favs = Pet.find(session[:favorites].keys)
     else
