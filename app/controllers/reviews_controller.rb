@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     if review.save
       redirect_to "/shelters/#{review.shelter_id}"
     else
-      flash[:notice] = "Review not submitted: Required information missing."
+      flash[:notice] = 'Review not submitted: Required information missing.'
       render :new
     end
   end
@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
     if @review.update(review_params)
       redirect_to "/shelters/#{@review.shelter_id}"
     else
-      flash[:notice] = "Review not submitted: Required information missing."
+      flash[:notice] = 'Review not submitted: Required information missing.'
       render :edit
     end
   end
