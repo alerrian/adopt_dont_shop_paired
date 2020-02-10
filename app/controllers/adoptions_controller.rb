@@ -7,7 +7,14 @@ class AdoptionsController < ApplicationController
     adoption = Adoption.create(adoption_params)
 
     if adoption.save
-      require 'pry'; binding.pry
+      pet_ids = params[:adopted_pet]
+      pets = Pet.find(pet_ids)
+      adoption.pets.push(pets)
+
+      adoption.pets.each do |pet|
+        @favorites.contents.delete(pet.id.to_s)
+      end
+
       redirect_to '/favorites'
       flash[:success] = 'Application submitted successfully!'
     else

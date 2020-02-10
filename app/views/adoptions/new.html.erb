@@ -3,8 +3,10 @@
 <%= form_tag '/adoptions', method: :post do %>
   <h2>Favorited Pets</h2>
   <% @favorite_pets.each do |pet| %>
-    <%= label_tag pet.name %>
-    <%= check_box_tag pet.name %><br>
+    <section id="pet_<%= pet.id %>">
+      <%= label_tag pet.name %>
+      <%= check_box_tag "adopted_pet[]", pet.id %><br>
+    </section>
   <% end %>
 
   <%= label_tag :name %>

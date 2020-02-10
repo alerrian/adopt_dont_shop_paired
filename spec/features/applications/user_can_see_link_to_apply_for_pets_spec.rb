@@ -54,17 +54,12 @@ RSpec.describe 'As a visitor', type: :feature do
     expect(current_path).to eq('/adoptions/new')
   end
 
-  it 'has checkboxes on form' do
-    visit '/adoptions/new'
-
-    expect(page).to have_unchecked_field(@pet1.name)
-    expect(page).to have_unchecked_field(@pet2.name)
-  end
-
   it 'has a form to fill out' do
     visit '/adoptions/new'
 
-    check @pet1.name
+    within "section#pet_#{@pet1.id}" do
+      check "adopted_pet_"
+    end
 
     fill_in 'name', with: 'Steve'
     fill_in 'address', with: '1234 S. North Street Road'
