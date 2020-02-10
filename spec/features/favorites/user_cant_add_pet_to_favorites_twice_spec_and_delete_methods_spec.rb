@@ -40,7 +40,9 @@ RSpec.describe 'As a visitor when I favorite a pet' do
     expect(page).to have_content("Favorites: 1")
     expect(page).not_to have_button('Favorite')
     click_on 'Unfavorite Pet'
-    expect(current_path).to eq("/favorites")
+    expect(current_path).to eq("/pets/#{@pet1.id}")
+
+    visit '/favorites'
     expect(page).not_to have_content("#{@pet1.name}")
   end
 
