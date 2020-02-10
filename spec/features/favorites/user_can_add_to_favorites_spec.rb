@@ -19,27 +19,4 @@ RSpec.describe "When a user adds pet to their favorites" do
       shelter_id: @shelter_1.id
     )
   end
-
-  it "can favorite a pet" do
-    visit "/pets"
-
-    within "#pet-#{@pet1.id}" do
-      click_on "Add Favorite"
-    end
-
-     expect(page).to have_content("Favorites: 1")
-
-     expect(page).to have_content("You have added #{@pet1.name} to your favorites.")
-   end
-
-   it 'cannot add more than one of a pet' do
-     visit '/pets'
-
-     within "#pet-#{@pet1.id}" do
-       click_on "Add Favorite"
-     end
-
-     expect(page).to have_content('Unfavorite Pet')
-     expect(page).to have_content("Favorites: 1")
-   end
 end
