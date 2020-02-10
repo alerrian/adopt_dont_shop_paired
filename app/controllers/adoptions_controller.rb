@@ -19,7 +19,7 @@ class AdoptionsController < ApplicationController
       flash[:success] = 'Application submitted successfully!'
     else
       flash[:error] = 'Application not submitted. Please complete the required fields.'
-      redirect_to '/applications/new'
+      redirect_to '/adoptions/new'
     end
   end
 
