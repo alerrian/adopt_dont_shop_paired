@@ -5,4 +5,6 @@
 <p> Zip: <%= @adoption.zip %></p>
 <p> Phone Number: <%= @adoption.phone_number %></p>
 <p> Description: <%= @adoption.description %></p>
-<p> Pets to adopt: <%= link_to "#{@adoption.pets.last.name}", "/pets/#{@adoption.pets.last.id}/show" %></p>
+<p> Pets to adopt: <% @adoption.pets.each do |pet| %>
+  <%= link_to "#{pet.name}", "/pets/#{@adoption.pets.last.id}/show" %></p>
+<% end %> 
