@@ -1,5 +1,5 @@
 <h2> Name: <%= @pet.name %></h2>
-<img src="<%= @pet.image %>"<br>
+<%= image_tag @pet.image, size: 100 %><br>
 <p> Description: <%= @pet.description %></p>
 <p> Age: <%= @pet.age %></p>
 <p> Sex: <%= @pet.sex %></p>

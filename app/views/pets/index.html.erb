@@ -12,9 +12,8 @@
     <p>Name: <a href="/pets/<%= pet.id %>"><%=pet.name%></a></p>
     <p><%= link_to 'Edit Pet', "/pets/#{pet.id}/edit"%> </p>
     <p><%= button_to 'Delete Pet', "/pets/#{pet.id}", method: :delete%> </p>
-    <p><%= link_to 'Add Favorite', "/favorites/#{pet.id}", method: :patch %></p>
   </div>
-    <img src="<%= pet.image %>">
+    <%= image_tag pet.image, size: 100 %>
     <p>Age: <%= pet.age %> </p>
     <p>Sex: <%= pet.sex %></p>
     <p>Shelter: <%= link_to "#{pet.shelter.name}", "/shelters/#{pet.shelter.id}" %></p>
