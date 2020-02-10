@@ -30,7 +30,7 @@ RSpec.describe 'As a visitor', type: :feature do
       description: 'I am awesome.'
     )
 
-    pet_adoption = PetAdoption.create!(
+    PetAdoption.create!(
       pet_id: @pet1.id,
       adoption_id: @adoption1.id
     )
