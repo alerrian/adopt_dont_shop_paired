@@ -1,0 +1,4 @@
+
+<% @adoptions.each do |adoption| %>
+  <%= link_to adoption.name, "/adoptions/#{adoption.id}"%>
+<% end %>
