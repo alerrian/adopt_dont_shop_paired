@@ -62,8 +62,9 @@ RSpec.describe 'As a visitor', type: :feature do
   end
 
   it 'has a form to fill out' do
+    visit '/adoptions/new'
+
     check @pet1.name
-    check @pet2.name
 
     fill_in 'name', with: 'Steve'
     fill_in 'address', with: '1234 S. North Street Road'
