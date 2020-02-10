@@ -29,10 +29,10 @@ RSpec.describe "When visits a single app show page" do
       description:'I love this animal so much! I would be great.'
     )
 
-    pet_adoption = pet_adoption.create!(pet_id: @pet1.id, adoption_id: @application1.id)
+    pet_adoption = PetAdoption.create!(pet_id: @pet1.id, adoption_id: @application1.id)
   end
   it 'can see attributes of the app and a link to name of pets' do
-  visit "/applications/#{@application1.id}"
+  visit "/adoptions/#{@application1.id}"
 
   expect(page).to have_content('Steve')
   expect(page).to have_content(@application1.address)
@@ -42,7 +42,7 @@ RSpec.describe "When visits a single app show page" do
   expect(page).to have_content(@application1.phone_number)
   expect(page).to have_content(@application1.description)
   expect(page).to have_link(@pet1.name)
-end 
+end
 
 end
 
