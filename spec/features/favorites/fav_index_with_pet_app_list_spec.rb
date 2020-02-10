@@ -45,7 +45,7 @@ RSpec.describe 'As a visitor', type: :feature do
     expect(page).to have_content('Pets with applications:')
 
     within 'section#applied-to-pets' do
-      expect(page).to have_content("#{@pet1.name} - (#{@application1.name})")
+      expect(page).to have_content("#{@pet1.name} - (#{@adoption1.name})")
 
       click_on @pet1.name
 
