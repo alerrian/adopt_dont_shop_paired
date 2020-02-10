@@ -7,6 +7,15 @@
 <% else %>
   <% @favs.each do |pet| %>
     <h3><%= link_to pet.name, "pets/#{pet.id}" %></h3>
-    <%= image_tag pet.image, size: 100 %>
+    <%= image_tag pet.image, size: 100 %><br>
+    <%= link_to "Unfavorite Pet", "/favorites", method: :delete %>
   <% end %>
 <% end %>
+
+<section id='applied-to-pets'>
+  <h2>Pets with applications:</h2>
+  <% @apps.each do |application| %>
+    <%= link_to Pet.find(application.pet_id).name, "/pets/#{application.pet_id}" %> - 
+    <%= "(#{Adoption.find(application.adoption_id).name})" %><br>
+  <% end %>
+</section>
