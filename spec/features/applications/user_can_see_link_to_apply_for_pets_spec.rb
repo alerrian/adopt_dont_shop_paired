@@ -77,4 +77,24 @@ RSpec.describe 'As a visitor', type: :feature do
     expect(page).not_to have_content(@pet1.name)
     expect(page).to have_content(@pet2.name)
   end
+
+  it 'can provide an error message if application incorrectly filled in' do
+    visit '/adoptions/new'
+
+    within "section#pet_#{@pet1.id}" do
+      check "adopted_pet_"
+    end
+
+    fill_in 'name', with: 'Steve'
+    fill_in 'address', with: '1234 S. North Street Road'
+    fill_in 'city', with: 'The Place I feel Safest'
+    fill_in 'state', with: 'CO'
+    fill_in 'zip', with: '06111'
+    fill_in 'phone_number', with: '719-123-4567'
+
+    click_on 'Submit Application'
+
+    expect(page).to have_content('Application not submitted. Please complete the required fields.')
+    expect(current_path).to eq('/adoptions/new')
+  end
 end
