@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 20200210022208) do
   end
 
   create_table "pet_adoptions", force: :cascade do |t|
-    t.bigint "pets_id"
-    t.bigint "adoptions_id"
-    t.index ["adoptions_id"], name: "index_pet_adoptions_on_adoptions_id"
-    t.index ["pets_id"], name: "index_pet_adoptions_on_pets_id"
+    t.bigint "pet_id"
+    t.bigint "adoption_id"
+    t.index ["adoption_id"], name: "index_pet_adoptions_on_adoption_id"
+    t.index ["pet_id"], name: "index_pet_adoptions_on_pet_id"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 20200210022208) do
     t.integer "zip"
   end
 
-  add_foreign_key "pet_adoptions", "adoptions", column: "adoptions_id"
-  add_foreign_key "pet_adoptions", "pets", column: "pets_id"
+  add_foreign_key "pet_adoptions", "adoptions"
+  add_foreign_key "pet_adoptions", "pets"
   add_foreign_key "pets", "shelters"
   add_foreign_key "reviews", "shelters"
 end
