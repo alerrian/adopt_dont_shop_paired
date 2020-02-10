@@ -1,0 +1,10 @@
+<h2> Name: <%= @adoption.name %></h2>
+<p> Address: <%= @adoption.address %></p>
+<p> City: <%= @adoption.city %></p>
+<p> State: <%= @adoption.state %></p>
+<p> Zip: <%= @adoption.zip %></p>
+<p> Phone Number: <%= @adoption.phone_number %></p>
+<p> Description: <%= @adoption.description %></p>
+<p> Pets to adopt: <% @adoption.pets.each do |pet| %>
+  <%= link_to "#{pet.name}", "/pets/#{@adoption.pets.last.id}/show" %></p>
+<% end %> 
