@@ -1,4 +1,7 @@
-
-<% @adoptions.each do |adoption| %>
-  <%= link_to adoption.name, "/adoptions/#{adoption.id}"%>
+<% if @adoptions.empty? %>
+  <p>There are no applications for this pet yet.</p>
+<% else %>
+  <% @adoptions.each do |adoption| %>
+    <%= link_to adoption.name, "/adoptions/#{adoption.id}"%>
+  <% end %>
 <% end %>
