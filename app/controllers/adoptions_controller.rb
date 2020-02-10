@@ -3,6 +3,10 @@ class AdoptionsController < ApplicationController
     @favorite_pets = Pet.find(session[:favorites].keys)
   end
 
+  def index
+    @adoptions = Adoption.all
+  end
+
   def create
     adoption = Adoption.create(adoption_params)
 
@@ -24,7 +28,6 @@ class AdoptionsController < ApplicationController
   end
 
   def show
-    # require "pry"; binding.pry
     @adoption = Adoption.find(params[:id])
   end
 
