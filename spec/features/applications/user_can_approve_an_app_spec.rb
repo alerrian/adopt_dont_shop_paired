@@ -38,6 +38,7 @@ RSpec.describe 'As a visitor', type: :feature do
         description:'I love this animal so much! I would be great.'
       )
       PetAdoption.create!(pet_id: @pet1.id, adoption_id: @adoption1.id)
+      PetAdoption.create!(pet_id: @pet2.id, adoption_id: @adoption1.id)
     end
 
     it 'can approve pets for the application on show page' do
@@ -46,6 +47,16 @@ RSpec.describe 'As a visitor', type: :feature do
       click_on "Approve Application for #{@pet1.name}"
 
       expect(current_path).to eq("/pets/#{@pet1.id}")
+
+      expect(page).to have_content("Status: Pending adoption for #{@adoption1.name}")
+    end
+
+    it 'can approve a second pet on an adoption page' do
+      visit "/adoptions/#{@adoption1.id}"
+
+      click_on "Approve Application for #{@pet2.name}"
+
+      expect(current_path).to eq("/pets/#{@pet2.id}")
 
       expect(page).to have_content("Status: Pending adoption for #{@adoption1.name}")
     end
