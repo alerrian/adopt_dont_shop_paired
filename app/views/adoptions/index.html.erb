@@ -1,7 +1,4 @@
-<% if @adoptions.empty? %>
-  <p>There are no applications for this pet yet.</p>
-<% else %>
+<%= "There are no applications for #{@pet.name} yet." if @pet.adoptions.empty? %>
   <% @adoptions.each do |adoption| %>
     <%= link_to adoption.name, "/adoptions/#{adoption.id}"%>
   <% end %>
-<% end %>
