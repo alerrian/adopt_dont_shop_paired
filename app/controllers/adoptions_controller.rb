@@ -1,10 +1,14 @@
 class AdoptionsController < ApplicationController
   def new
+    # require "pry"; binding.pry
     @favorite_pets = Pet.find(session[:favorites].keys)
   end
 
   def index
+    # require "pry"; binding.pry
     @adoptions = Adoption.all
+    @pet = Pet.find(params[:id])
+
   end
 
   def create
@@ -28,7 +32,11 @@ class AdoptionsController < ApplicationController
   end
 
   def show
-    @adoption = Adoption.find(params[:id])
+    # if params[:adoption_id]
+      @adoption = Adoption.find(params[:id])
+    # else
+    #   @pet = Pet.find(params[:pet_id])
+    # end
   end
 
   private
