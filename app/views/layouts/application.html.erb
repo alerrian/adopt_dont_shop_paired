@@ -9,11 +9,14 @@
   </head>
 
   <body>
-    <banner>
-      <%= link_to 'Pets Index', "/pets" %>
-      <%= link_to 'Shelters Index', "/shelters" %>
-      <%= link_to "Favorites: #{@favorites.total_count}", '/favorites' %>
-    </banner>
+    <nav>
+      <ul>
+        <li><h1 id="header_text">Adopt Don't Shop</h1></li>
+        <li style="float: right;"><%= link_to 'Pets Index', "/pets" %></li>
+        <li style="float: right;"><%= link_to 'Shelters Index', "/shelters" %></li>
+        <li style="float: right;"><%= link_to "Favorites: #{@favorites.total_count}", '/favorites' %></li>
+      </ul>
+    </nav>
 
     <% flash.each do |type, message| %>
       <p><%= message %></p>
