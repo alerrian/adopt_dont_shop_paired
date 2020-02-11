@@ -19,9 +19,7 @@ class SheltersController < ApplicationController
   def update
     shelter = Shelter.find(params[:id])
     shelter.update(shelter_params)
-
     shelter.save
-
     redirect_to "/shelters/#{shelter.id}"
   end
 
@@ -30,8 +28,14 @@ class SheltersController < ApplicationController
   end
 
   def destroy
-    Shelter.destroy(params[:id])
-    redirect_to '/shelters'
+    shelter = Shelter.find(params[:id])
+    if shelter.pets.any? { |pet| pet.adoptable.include?('Pending')}
+      flash[:notice] = 'You cannot delete this shelter.'
+      redirect_to "/shelters/#{shelter.id}"
+    else
+      Shelter.destroy(params[:id])
+      redirect_to '/shelters'
+    end
   end
 
   private
