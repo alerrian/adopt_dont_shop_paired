@@ -22,7 +22,7 @@ pet1 = Pet.create(
   description: 'Black lab',
   age: '2',
   sex: 'female',
-  adoptable: 'yes',
+  adoptable: 'Adoptable',
   shelter_id: shelter_1.id
 )
 pet2 = Pet.create(
@@ -31,7 +31,7 @@ pet2 = Pet.create(
   description: 'Big dog',
   age: '4',
   sex: 'male',
-  adoptable: 'yes',
+  adoptable: 'Adoptable',
   shelter_id: shelter_2.id
 )
 

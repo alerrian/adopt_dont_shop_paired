@@ -5,6 +5,7 @@
 <p> Zip: <%= @adoption.zip %></p>
 <p> Phone Number: <%= @adoption.phone_number %></p>
 <p> Description: <%= @adoption.description %></p>
-<p> Pets to adopt: <% @adoption.pets.each do |pet| %>
-  <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></p>
+<p> Pets to adopt: </p><% @adoption.pets.each do |pet| %>
+  <%= link_to "#{pet.name}", "/pets/#{pet.id}" %> - 
+  <%= link_to "Approve Application for #{pet.name}", "/adoptions/#{@adoption.id}/pets/#{pet.id}", method: :patch%><br>
 <% end %>
