@@ -38,7 +38,7 @@ RSpec.describe 'As a visitor', type: :feature do
       click_on 'Delete Shelter'
 
       expect(current_path).to eq("/shelters/#{@shelter1.id}")
-      expect(page).to have_content('You cannot delete this shelter.') 
+      expect(page).to have_content('You cannot delete this shelter.')
     end
   end
 end
