@@ -52,7 +52,7 @@ RSpec.describe 'When visits a single app show page' do
   end
 
   it 'if pet has no apps message shows' do
-    visit "/adoptions/#{@pet2.id}"
+    visit "/pets/#{@pet2.id}/adoptions"
 
     expect(page).to have_content('There are no applications for this pet yet.')
   end
