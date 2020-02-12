@@ -31,8 +31,8 @@ RSpec.describe 'create pet page', type: :feature do
 
       click_on 'Create Pet'
 
-      expect(current_path).to eq("/shelters/#{shelter_1.id}/pets")
-      # expect(page).to have_content("Male")
+      expect(page).to have_content("Adoptable can't be blank")
+
     end
   end
 end
