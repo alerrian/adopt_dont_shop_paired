@@ -37,4 +37,5 @@ Rails.application.routes.draw do
   get '/pets/:id/adoptions', to: 'adoptions#index'
 
   patch '/adoptions/:adoptions_id/pets/:pet_id', to: 'pet_adoptions#update'
+  delete '/adoptions/:adoptions_id/pets/:pet_id', to: 'pet_adoptions#revoke'
 end
