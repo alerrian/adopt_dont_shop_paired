@@ -43,8 +43,15 @@ class PetsController < ApplicationController
   end
 
   def destroy
-    Pet.destroy(params[:id])
-    redirect_to '/pets'
+    pet = Pet.find(params[:id])
+
+    if pet.adoptable.include?('Pending')
+      flash[:notice] = 'You cannot delete this pet.'
+      redirect_to "/pets/#{pet.id}"
+    else
+      Pet.destroy(params[:id])
+      redirect_to '/pets'
+    end
   end
 
   private
