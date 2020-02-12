@@ -49,7 +49,9 @@ class PetsController < ApplicationController
       flash[:notice] = 'You cannot delete this pet.'
       redirect_to "/pets/#{pet.id}"
     else
-      Pet.destroy(params[:id])
+      apps = PetAdoption.where(pet_id: pet.id)
+      PetAdoption.destroy(apps.ids)
+      Pet.destroy(pet.id)
       redirect_to '/pets'
     end
   end
