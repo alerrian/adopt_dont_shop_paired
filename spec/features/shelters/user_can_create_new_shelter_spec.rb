@@ -36,7 +36,7 @@ RSpec.describe 'As a visitor', type: :feature do
       click_on 'Create Shelter'
 
       expect(current_path).to eq('/shelters/new')
-      expect(page).to have_content("City can't be blank") 
+      expect(page).to have_content("City can't be blank")
     end
   end
 end
