@@ -33,8 +33,11 @@ class SheltersController < ApplicationController
       flash[:notice] = 'You cannot delete this shelter.'
       redirect_to "/shelters/#{shelter.id}"
     else
+      shelter.pets.destroy_all
+      shelter.reviews.destroy_all
       Shelter.destroy(params[:id])
       redirect_to '/shelters'
+      flash[:notice] = "#{shelter.name} was deleted."
     end
   end
 
