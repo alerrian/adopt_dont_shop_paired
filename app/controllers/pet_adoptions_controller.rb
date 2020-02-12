@@ -17,9 +17,8 @@ class PetAdoptionsController < ApplicationController
       adoption_id: params[:adoptions_id],
       pet_id: params[:pet_id]
     )
-       pet.adoptable = 'Adoptable'
-       pet.save
+    pet.adoptable = 'Adoptable'
+    pet.save
     redirect_to "/adoptions/#{pet_adoption.adoption.id}"
-
   end
 end
