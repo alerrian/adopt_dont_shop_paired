@@ -52,6 +52,7 @@ class PetsController < ApplicationController
       apps = PetAdoption.where(pet_id: pet.id)
       PetAdoption.destroy(apps.ids)
       Pet.destroy(pet.id)
+      @favorites.delete_pet(pet.id)
       redirect_to '/pets'
     end
   end

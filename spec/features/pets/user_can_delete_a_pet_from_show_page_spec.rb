@@ -24,7 +24,7 @@ RSpec.describe 'update pet page', type: :feature do
 
     it 'can delete a pet' do
       visit "/pets/#{@pet1.id}"
-
+      click_on 'Add Favorite'
       click_on 'Delete Pet'
 
       expect(current_path).to eq('/pets')
@@ -43,11 +43,10 @@ RSpec.describe 'update pet page', type: :feature do
       )
 
       visit "/pets/#{pet2.id}"
-
+      click_on 'Add Favorite'
       click_on 'Delete Pet'
-
-      expect(current_path).to eq("/pets/#{pet2.id}")
       expect(page).to have_content('You cannot delete this pet.')
+
     end
   end
 end

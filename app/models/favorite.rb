@@ -3,6 +3,10 @@ class Favorite
 
   def initialize(initial_contents)
     @contents = initial_contents
+    if @contents == nil
+      0
+    end
+
   end
 
   def total_count
@@ -11,5 +15,9 @@ class Favorite
     else
       @contents.values.sum
     end
+  end
+
+  def delete_pet(id)
+    @contents.delete(id.to_s)
   end
 end
