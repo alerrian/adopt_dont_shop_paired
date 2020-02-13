@@ -19,8 +19,12 @@ class PetsController < ApplicationController
 
   def create
     pet = Pet.new(pet_params)
-    pet.save
-    redirect_to "/shelters/#{pet.shelter_id}/pets"
+    if pet.save
+      redirect_to "/shelters/#{pet.shelter_id}/pets"
+    else
+      flash[:error] = pet.errors.full_messages.to_sentence
+      redirect_to "/shelters/#{pet.shelter_id}/pets/new"
+    end
   end
 
   def edit
