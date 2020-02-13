@@ -16,8 +16,7 @@
   <%= label_tag :sex %>
   <%= text_field_tag :sex, @pet.sex %>
 
-  <%= label_tag :adoptable %>
-  <%= text_field_tag :adoptable, @pet.adoptable %>
+  <%= text_field_tag :adoptable, @pet.adoptable, hidden: true %>
 
   <%= submit_tag 'Update Pet'%>
 <% end %>
