@@ -7,12 +7,11 @@
 <p> Description: <%= @adoption.description %></p>
 <p> Pets to adopt: </p><% @adoption.pets.each do |pet| %>
   <%= link_to "#{pet.name}", "/pets/#{pet.id}" %> -
-  <%# <%require "pry"; binding.pry  %> %>
   <% if pet.adoptable == "Adoptable" %>
     <%= link_to "Approve Application for #{pet.name}", "/adoptions/#{@adoption.id}/pets/#{pet.id}", method: :patch%><br>
   <% elsif pet.adoptable == "Pending adoption for #{@adoption.name}" %>
     <%= link_to "Unapprove Application for #{pet.name}", "/adoptions/#{@adoption.id}/pets/#{pet.id}", method: :delete%><br>
   <% else %>
     <%= "#{pet.name} already pending."%>
-<% end %>
+  <% end %>
 <% end %>
